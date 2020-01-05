@@ -11,7 +11,7 @@ class Cactus:
 
     def __init__(self, display: Surface):
         self.display = display
-        self.rect = Rect((display.get_width() + self.WIDTH, self.display.get_height() - self.HEIGHT - 10),
+        self.rect = Rect((display.get_width() + self.WIDTH, self.display.get_height() - self.HEIGHT - 20),
                          (self.WIDTH, self.HEIGHT))
 
     def update(self):
