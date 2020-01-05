@@ -16,10 +16,19 @@ class GameRun:
         self.background = pygame.transform.scale(pygame.image.load("image/background.jpg").convert(),
                                                  (display.get_width(), display.get_height()))
         self.score = Score(display)
+        self.score.load()
         self.cactus = Cactus(display)
 
     def is_game_over(self):
         return self.t_rex.rect.colliderect(self.cactus.rect)
+
+    def reset(self):
+        self.t_rex.rect.y = self.display.get_height() - self.t_rex.HEIGHT - 20
+        self.cactus.rect.x = self.display.get_width() + self.cactus.WIDTH
+        self.score.save()
+        self.score.load()
+        self.score.current_score = 0
+        self.t_rex.jumping = False
 
     def update(self):
         self.t_rex.update()
@@ -28,6 +37,7 @@ class GameRun:
         if self.cactus.rect.x < -self.cactus.WIDTH:
             self.cactus.rect.x = self.display.get_width() + self.cactus.WIDTH
         if self.is_game_over():
+            self.reset()
             self.cactus.COLOUR = (255, 0, 0)
         else:
             self.cactus.COLOUR = (0, 0, 0)
