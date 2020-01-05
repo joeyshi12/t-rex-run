@@ -19,7 +19,7 @@ class Score:
     def save(self):
         """writes high score to high_score.txt"""
         file = open("data/high_score.txt", 'w')
-        file.write(str(self.high_score))
+        file.write(str(max([self.current_score, self.high_score])))
         file.close()
 
     def load(self):
@@ -31,7 +31,6 @@ class Score:
     def update(self):
         """updates current_score and high_score for next game frame"""
         self.current_score += 1
-        self.high_score = max([self.current_score, self.high_score])
 
     def draw(self):
         """draws score board on display"""
