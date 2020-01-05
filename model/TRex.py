@@ -5,9 +5,9 @@ import pygame
 
 
 class TRex:
-    GRAVITY: float = 0.5
-    WIDTH: int = 70
-    HEIGHT: int = 70
+    GRAVITY: float = 0.2
+    WIDTH: int = 50
+    HEIGHT: int = 50
     SPRITE: image = pygame.transform.scale(pygame.image.load("image/t_rex_sprite.png"), (WIDTH, HEIGHT))
 
     jumping: bool = False
@@ -15,7 +15,7 @@ class TRex:
 
     def __init__(self, display: Surface):
         self.display = display
-        self.rect = Rect((100, 100), (self.WIDTH, self.HEIGHT))
+        self.rect = Rect((70, display.get_height() - 100), (self.WIDTH, self.HEIGHT))
         self.dy = 0
 
     def update(self):
@@ -25,13 +25,13 @@ class TRex:
 
         if self.on_ground():
             if self.jumping:
-                self.dy = -10
+                self.dy = -5
             else:
-                self.rect.y = self.display.get_height() - self.HEIGHT - 100
+                self.rect.y = self.display.get_height() - self.HEIGHT - 10
                 self.dy = 0
 
     def on_ground(self):
-        return self.rect.y > self.display.get_height() - self.HEIGHT - 100
+        return self.rect.y > self.display.get_height() - self.HEIGHT - 10
 
     def draw(self):
         self.display.blit(self.SPRITE, self.rect)

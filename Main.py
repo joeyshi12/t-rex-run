@@ -1,12 +1,13 @@
 import pygame
 
 from model.GameRun import GameRun
+from model.Score import Score
 
 pygame.init()
 pygame.display.set_caption('T-Rex Run')
 clock = pygame.time.Clock()
-display_width = 800
-display_height = 500
+display_width = 600
+display_height = 200
 display = pygame.display.set_mode((display_width, display_height))
 
 
