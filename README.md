@@ -1,6 +1,7 @@
 # t-rex-run
 
 Python implementation of Google's T-Rex Run game.
+> The legacy implementation still exists on the [master branch](https://github.com/joeyshi12/t-rex-run/tree/master)
 
 ## Getting started
 
