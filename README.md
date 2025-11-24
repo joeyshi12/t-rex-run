@@ -3,6 +3,8 @@
 Pygame implementation of Google's T-Rex Run game.
 > The legacy implementation still exists on the [master branch](https://github.com/joeyshi12/t-rex-run/tree/master).
 
+![T-Rex Run demo](/assets/demo.gif)
+
 ## Getting started
 
 1. Install Python dependencies.
