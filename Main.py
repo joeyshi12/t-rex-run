@@ -1,14 +1,14 @@
 import pygame
 
-from model.GameRun import GameRun
-from model.Score import Score
+from game_manager import GameManager
 
 pygame.init()
-pygame.display.set_caption('T-Rex Run')
+pygame.display.set_caption("T-Rex Run")
 clock = pygame.time.Clock()
-display_width = 600
-display_height = 220
-display = pygame.display.set_mode((display_width, display_height))
+screen = pygame.display.set_mode((600, 300))
+
+spritesheet = pygame.image.load("assets/spritesheet.png")
+game_manager = GameManager(screen, spritesheet)
 
 
 def main():
@@ -18,15 +18,14 @@ def main():
                 pygame.quit()
                 quit()
             if event.type == pygame.KEYDOWN:
-                game_run.key_handle_down(event.key)
+                game_manager.handle_key_down(event.key)
             if event.type == pygame.KEYUP:
-                game_run.key_handle_up(event.key)
-        game_run.render()
-        game_run.update()
+                game_manager.handle_key_up(event.key)
+        game_manager.update()
+        game_manager.draw()
         pygame.display.update()
-        clock.tick(100)
+        clock.tick(60)
 
 
 if __name__ == '__main__':
-    game_run = GameRun(display)
     main()
